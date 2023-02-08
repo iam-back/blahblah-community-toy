@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context path="/">
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <Resource   name="jdbc/blahblah" auth="Container"
+                factory="com.zaxxer.hikari.HikariJNDIFactory"
+                type="javax.sql.DataSource"
+                maxActive="100" maxIdle="10" maxWait="15000"
+                username="blahblah_admin" password="blahblah_admin"
+                driverClassName="org.mariadb.jdbc.Driver"
+                connectionTimeout="20000"
+                jdbcUrl="jdbc:mariadb://localhost:3306/blahblah"/>
+</Context>
