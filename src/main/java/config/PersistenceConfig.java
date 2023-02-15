@@ -22,7 +22,7 @@ public class PersistenceConfig {
 
     private final Resource[] resources = new ClassPathResource[]{
             new ClassPathResource("mybatis/mapper/user-mapper.xml"),
-            new ClassPathResource("mybatis/mapper/salt-mapper.xml")
+            new ClassPathResource("mybatis/mapper/board-mapper.xml")
     };
 
     @Bean

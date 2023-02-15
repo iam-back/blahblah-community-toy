@@ -14,6 +14,10 @@ public class SessionUtilImpl implements SessionUtil {
     public SessionInfo getSessionInfo(HttpServletRequest request) {
         HttpSession httpSession = request.getSession(false);
 
-        return (SessionInfo) httpSession.getAttribute("session");
+        if(httpSession!=null){
+            return (SessionInfo) httpSession.getAttribute("session");
+        }
+
+        return null;
     }
 }

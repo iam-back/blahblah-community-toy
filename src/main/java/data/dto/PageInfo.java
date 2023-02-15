@@ -1,6 +1,5 @@
 package data.dto;
 
-import data.dto.enums.SearchType;
 import lombok.*;
 
 @Getter
@@ -13,7 +12,6 @@ public class PageInfo {
     private int pageSize;
     private int recordSize;
     private String keyword;
-    private SearchType type;
 
     public PageInfo(){
         this.page = 1;

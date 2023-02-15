@@ -19,7 +19,7 @@
     <label for="password">PASSWORD : </label>
     <input type="password" name="password" id="password">
     <label for="checkPwd">CHECK PASSWORD : </label>
-    <input type="password" name="password" id="checkPwd">
+    <input type="password" name="checkPwd" id="checkPwd">
     <input type="submit" value="로그인">
 </form>
 </body>

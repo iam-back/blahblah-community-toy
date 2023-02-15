@@ -28,10 +28,12 @@ public class IndexController {
             /*
                 SESSION INFO 를 기반으로 한 USER 별 데이터 불러오기
              */
-            UserDTO userDTO = userService.getUser(UserDTO.builder()
+            UserDTO userDTO = userService.getUserInfo(UserDTO.builder()
                                                 .id(sessionInfo.getId())
                                                 .email(sessionInfo.getEmail())
                                                 .build());
+
+            modelAndView.addObject("user",userDTO);
 
         }
 

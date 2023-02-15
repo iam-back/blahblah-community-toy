@@ -30,7 +30,7 @@
 </div>
 <div class="container">
     <c:if test="${session!=null}">
-        <a href="${pageContext.request.contextPath}/blog/${session.id}">내 블로그</a>
+        <a href="${pageContext.request.contextPath}/user/info/${session.id}">내 블로그</a>
     </c:if>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

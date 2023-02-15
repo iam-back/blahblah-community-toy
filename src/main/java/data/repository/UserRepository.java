@@ -11,8 +11,8 @@ public interface UserRepository {
 
     UserEntity select(UserEntity userEntity);
     int isEmailExist(@Param("email") String email);
-    int insertUser(UserEntity userEntity);
-    int modifyUser(UserEntity userEntity);
-    int deleteUser(UserEntity userEntity);
+    int insert(UserEntity userEntity);
+    int modify(UserEntity userEntity);
+    int delete(UserEntity userEntity);
 
 }

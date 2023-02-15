@@ -16,6 +16,7 @@ public class UserEntity {
     private int id;
     private String name;
     private String password;
+    private String salt;
     private String email;
     private String description;
     private LocalDateTime createDate;

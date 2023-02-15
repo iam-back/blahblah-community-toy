@@ -8,7 +8,6 @@
     </settings>
     <typeAliases>
         <typeAlias type="data.entity.UserEntity" alias="user"/>
-        <typeAlias type="data.entity.SaltEntity" alias="salt"/>
-        <typeAlias type="data.dto.PageInfo" alias="page"
+        <typeAlias type="data.dto.PageInfo" alias="page"/>
     </typeAliases>
 </configuration>

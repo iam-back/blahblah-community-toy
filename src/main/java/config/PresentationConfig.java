@@ -1,13 +1,16 @@
 package config;
 
 import interceptor.SessionInterceptor;
-import org.springframework.context.annotation.Bean;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
 @EnableWebMvc
+@RequiredArgsConstructor
 public class PresentationConfig implements WebMvcConfigurer {
+
+    private final SessionInterceptor sessionInterceptor;
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -21,14 +24,10 @@ public class PresentationConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(sessionInterceptor())
+        registry.addInterceptor(sessionInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/", "/static/css/**", "/static/js/**",
                         "/user/authentication", "/user/registration");
     }
 
-    @Bean
-    public SessionInterceptor sessionInterceptor(){
-        return new SessionInterceptor();
-    }
 }

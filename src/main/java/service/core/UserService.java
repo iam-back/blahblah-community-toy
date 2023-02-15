@@ -4,7 +4,9 @@ import data.dto.UserDTO;
 
 public interface UserService {
 
-    UserDTO signIn(UserDTO userDTO);
+    UserDTO signIn(String email, String password);
     boolean signUp(UserDTO userDTO);
-    UserDTO getUser(UserDTO userDTO);
+    UserDTO getUserInfo(UserDTO userDTO);
+    boolean modifyUser(UserDTO userDTO);
+    boolean deleteUser(UserDTO userDTO);
 }

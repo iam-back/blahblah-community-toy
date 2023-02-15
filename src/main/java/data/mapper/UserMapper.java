@@ -7,6 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -16,6 +18,7 @@ public interface UserMapper {
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "password", target = "password"),
+            @Mapping(source = "salt", target = "salt"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "createDate", target = "createDate"),
             @Mapping(source = "updateDate", target = "updateDate"),
@@ -27,6 +30,7 @@ public interface UserMapper {
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "password", target = "password"),
+            @Mapping(source = "salt", target = "salt"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "createDate", target = "createDate"),
             @Mapping(source = "updateDate", target = "updateDate"),
