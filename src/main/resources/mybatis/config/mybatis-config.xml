@@ -8,6 +8,8 @@
     </settings>
     <typeAliases>
         <typeAlias type="data.entity.UserEntity" alias="user"/>
+        <typeAlias type="data.entity.BoardEntity" alias="board"/>
+        <typeAlias type="data.entity.ReplyEntity" alias="reply"/>
         <typeAlias type="data.dto.PageInfo" alias="page"/>
     </typeAliases>
 </configuration>

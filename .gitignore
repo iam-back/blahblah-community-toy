@@ -2,3 +2,4 @@
 .idea
 blahblah-community-toy.iml
 target
+src/main/resources/markdown/MapStruct.md

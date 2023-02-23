@@ -9,15 +9,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoardDTO {
+public class ReplyDTO {
 
-    private int id;
-    private String title;
+    private String writer;
     private String content;
     private LocalDateTime createDate;
-    private LocalDateTime updateDate;
-    private int viewCount;
-    private int likeCount;
-    private int userId;
 
 }

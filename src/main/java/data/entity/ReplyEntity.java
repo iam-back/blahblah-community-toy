@@ -11,15 +11,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoardEntity {
+public class ReplyEntity {
 
-    private int id;
-    private String title;
     private String content;
     private LocalDateTime createDate;
-    private LocalDateTime updateDate;
-    private int viewCount;
-    private int likeCount;
-    private int userId;
+    private int boardId;
 
 }

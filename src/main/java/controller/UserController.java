@@ -15,6 +15,7 @@ import service.util.SessionUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -96,10 +97,18 @@ public class UserController {
     }
 
     @GetMapping("/info/{userId}")
-    public ModelAndView getInfo(@PathVariable String userId){
+    public ModelAndView getInfo(@PathVariable int userId){
         ModelAndView modelAndView = new ModelAndView();
 
-        //boardService 를 통해 자신의 
+        UserDTO userDTO = userService.getUserInfo(UserDTO.builder().id(userId).build());
+
+        if(userDTO!=null){
+            modelAndView.addObject("user",userDTO);
+        }
+
+        modelAndView.setViewName("/user/info");
+
+        //Ajax 를 통해 BoardList 혹은 ReplyList 불러오기
 
         return modelAndView;
     }

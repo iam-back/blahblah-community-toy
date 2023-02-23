@@ -21,7 +21,7 @@
                 <c:otherwise>
                     ${session.name}님 안녕하세요!
                     <a href="${pageContext.request.contextPath}/blog/edit">글 작성하기</a>
-                    <a href="${pageContext.request.contextPath}/user/info">회원정보수정</a>
+                    <a href="${pageContext.request.contextPath}/user/info/${session.id}">내 정보</a>
                     <a href="${pageContext.request.contextPath}/user/logout">Sign Out</a>
                 </c:otherwise>
             </c:choose>
