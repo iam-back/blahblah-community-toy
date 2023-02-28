@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import service.core.BoardService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +29,14 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardDTO getBoard(BoardDTO boardDTO) {
 
-        BoardEntity boardEntity = boardRepository.select(boardDTO.getId());
-        return BoardMapper.INSTANCE.toDTO(boardEntity);
+        Optional<BoardEntity> optBoardEntity = Optional.ofNullable(boardRepository.select(boardDTO.getId()));
+
+        if(optBoardEntity.isPresent()){
+            BoardEntity boardEntity = optBoardEntity.get();
+            return BoardMapper.INSTANCE.toDTO(boardEntity);
+        }
+
+        return null;
     }
 
     @Override
@@ -47,7 +54,6 @@ public class BoardServiceImpl implements BoardService {
     @Override
     @Transactional
     public boolean deleteBoard(int boardId, int userId) {
-
         return (boardRepository.delete(boardId, userId))==1;
     }
 }

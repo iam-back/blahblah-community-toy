@@ -2,7 +2,6 @@ package controller;
 
 import data.dto.SessionInfo;
 import data.dto.UserDTO;
-import exception.SessionNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,6 @@ import service.util.SessionUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -60,7 +58,7 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public ModelAndView postRegistration(@ModelAttribute UserDTO userDTO, @RequestParam("checkPwd") String checkPwd){
+    public ModelAndView postRegistration(@ModelAttribute final UserDTO userDTO, @RequestParam("checkPwd") String checkPwd){
         ModelAndView modelAndView = new ModelAndView();
 
         log.info(userDTO.toString()+":::"+checkPwd);
@@ -82,7 +80,6 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         SessionInfo sessionInfo = sessionUtil.getSessionInfo(request);
 
-        //만료됐을 경우를 대비해서 null 체크
         if(sessionInfo!=null){
             if(userService.modifyUser(userDTO)){
                 modelAndView.setViewName("/user/info");
@@ -146,11 +143,8 @@ public class UserController {
 
         if(httpSession!=null){
             httpSession.invalidate();
-
-            return "redirect:/";
         }
-
-        throw new SessionNotFoundException();
+        return "redirect:/";
     }
 
 

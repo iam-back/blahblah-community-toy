@@ -10,8 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="${pageContext.request.contextPath}/user/modify" method="post">
 
-    </form>
 </body>
 </html>

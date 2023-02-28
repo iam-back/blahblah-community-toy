@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public boolean signUp(UserDTO userDTO) {
+    public boolean signUp(final UserDTO userDTO) {
 
         if(userRepository.isEmailExist(userDTO.getEmail())==0){
             String salt = hashUtil.getSalt();
@@ -58,18 +58,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUserInfo(UserDTO userDTO) {
+    public UserDTO getUserInfo(final UserDTO userDTO) {
         UserEntity userEntity = userRepository.select(UserMapper.INSTANCE.toEntity(userDTO));
         return UserMapper.INSTANCE.toDTO(userEntity);
     }
 
     @Override
-    public boolean modifyUser(UserDTO userDTO) {
+    public boolean modifyUser(final UserDTO userDTO) {
         return (userRepository.modify(UserMapper.INSTANCE.toEntity(userDTO))==1);
     }
 
     @Override
-    public boolean deleteUser(UserDTO userDTO) {
+    public boolean deleteUser(final UserDTO userDTO) {
         return (userRepository.delete(UserMapper.INSTANCE.toEntity(userDTO))==1);
     }
 

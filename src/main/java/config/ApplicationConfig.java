@@ -6,6 +6,6 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import(value = {PresentationConfig.class, PersistenceConfig.class})
-@ComponentScan(basePackages = {"controller","data.repository", "service","interceptor"})
+@ComponentScan(basePackages = {"controller","data.repository", "service","interceptor","exception.handler"})
 public class ApplicationConfig {
 }

@@ -20,7 +20,7 @@
     <org.springframework.version>5.3.23</org.springframework.version>
     <org.projectlombok.version>1.18.24</org.projectlombok.version>
     <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-    <org.lombok-mastruct.version>0.2.0</org.lombok-mastruct.version>
+    <org.lombok-mapstruct.version>0.2.0</org.lombok-mapstruct.version>
   </properties>
 
   <dependencies>
@@ -125,7 +125,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok-mapstruct-binding</artifactId>
-      <version>${org.lombok-mastruct.version}</version>
+      <version>${org.lombok-mapstruct.version}</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate.validator</groupId>
@@ -173,7 +173,7 @@
               <path>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-mapstruct-binding</artifactId>
-                <version>${org.lombok-mastruct.version}</version>
+                <version>${org.lombok-mapstruct.version}</version>
               </path>
               <path>
                 <groupId>org.mapstruct</groupId>

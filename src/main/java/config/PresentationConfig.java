@@ -27,7 +27,7 @@ public class PresentationConfig implements WebMvcConfigurer {
         registry.addInterceptor(sessionInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/", "/static/css/**", "/static/js/**",
-                        "/user/authentication", "/user/registration");
+                        "/user/authentication", "/user/registration","/index");
     }
 
 }

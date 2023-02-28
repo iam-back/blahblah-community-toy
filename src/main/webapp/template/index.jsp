@@ -11,8 +11,8 @@
 <body>
 <div class="container">
     <div class="row blog-navbar">
-        <div class="col-md-8"></div>
-        <div class="col-md-4 text-end">
+        <div class="col-md-7"></div>
+        <div class="col-md-5 text-end">
             <c:choose>
                 <c:when test="${session==null}">
                     <a href="${pageContext.request.contextPath}/user/authentication">Sign In</a>
@@ -27,11 +27,6 @@
             </c:choose>
         </div>
     </div>
-</div>
-<div class="container">
-    <c:if test="${session!=null}">
-        <a href="${pageContext.request.contextPath}/user/info/${session.id}">내 블로그</a>
-    </c:if>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

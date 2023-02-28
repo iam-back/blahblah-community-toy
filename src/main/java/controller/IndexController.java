@@ -4,6 +4,7 @@ import data.dto.BoardDTO;
 import data.dto.SessionInfo;
 import data.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,11 +13,11 @@ import service.core.UserService;
 import service.util.SessionUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class IndexController {
 
     private final SessionUtil sessionUtil;
@@ -34,6 +35,8 @@ public class IndexController {
         ModelAndView modelAndView = new ModelAndView();
         SessionInfo sessionInfo = sessionUtil.getSessionInfo(request);
 
+        log.info("Index Invoked");
+
         if(sessionInfo!=null){
             /*
                 SESSION INFO 를 기반으로 한 USER 별 데이터 불러오기
@@ -50,5 +53,15 @@ public class IndexController {
         modelAndView.setViewName("/index");
 
         return modelAndView;
+    }
+
+    @GetMapping("/index")
+    public ModelAndView getIndex2(){
+        ModelAndView modelAndView = new ModelAndView();
+
+
+        modelAndView.setViewName("/index");
+
+        throw new NullPointerException();
     }
 }

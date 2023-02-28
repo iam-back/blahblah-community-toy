@@ -10,3 +10,7 @@
 이러한 설정이 보안에 취약하거나 DataSource 관련 설정을 변경해야할 때 다시 컴파일해야 하는 문제가 발생하지 않을까 하는 마음에 다른 방법을 찾아보게 되었다. <br>
 그 과정에서 Java Name and Directory Interface 를 알게 되었고 이를 적용해보고자 하였다.
 
+## final keyword 를 통한 readonly parameter
+
+* Reference Type 에 final 을 붙이면, 객체의 field 는 수정할 수 있지만, Reference 변수가 가리키는 객체의 주소는 불변함
+* 메소드 내에서 객체의 상태가 변하는 것을 막을 수 있음

@@ -4,18 +4,16 @@ import data.dto.BoardDTO;
 import data.dto.PageInfo;
 import data.dto.SessionInfo;
 import data.dto.enums.Order;
-import exception.BoardNotFoundException;
-import exception.UnExpectedException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import service.core.BoardService;
-import service.core.UserService;
 import service.util.SessionUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/board")
@@ -49,10 +47,13 @@ public class BoardController {
         ModelAndView modelAndView = new ModelAndView();
 
         if(boardId!=0){
-            BoardDTO boardDTO = boardService.getBoard(BoardDTO.builder().id(boardId).build());
-            if(boardDTO==null){
+            Optional<BoardDTO> optBoardDTO = Optional.ofNullable(boardService.getBoard(BoardDTO.builder().id(boardId).build()));
+
+            if(optBoardDTO.isPresent()){
+                BoardDTO boardDTO = optBoardDTO.get();
+
+                modelAndView.addObject("board",boardDTO);
             }
-            modelAndView.addObject("board",boardDTO);
         }
 
         modelAndView.setViewName("/board/edit");
@@ -79,16 +80,15 @@ public class BoardController {
     public ModelAndView getArticle(@PathVariable int boardId){
         ModelAndView modelAndView = new ModelAndView();
 
-        BoardDTO boardDTO = boardService.getBoard(BoardDTO.builder().id(boardId).build());
+        Optional<BoardDTO> optBoardDTO = Optional.ofNullable(boardService.getBoard(BoardDTO.builder().id(boardId).build()));
 
-        if(boardDTO!=null){
+        if(optBoardDTO.isPresent()){
+            BoardDTO boardDTO = optBoardDTO.get();
             modelAndView.addObject("board",boardDTO);
             modelAndView.setViewName("/board/article");
-
-            return modelAndView;
         }
 
-        throw new UnExpectedException();
+        return modelAndView;
     }
 
     @GetMapping("/search")
